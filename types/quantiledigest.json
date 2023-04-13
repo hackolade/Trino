@@ -2,7 +2,7 @@
 	"name": "QuantileDigest",
 	"erdAbbreviation": "<qdigest>",
 	"dtdAbbreviation": "[...]",
-	"parentType": "string",
+	"parentType": "binary",
 	"useSample": true,
 	"defaultValues": {
 		"properties": [],

@@ -2,7 +2,7 @@
 	"name": "SetDigest",
 	"erdAbbreviation": "<setdigest>",
 	"dtdAbbreviation": "[...]",
-	"parentType": "string",
+	"parentType": "binary",
 	"useSample": true,
 	"defaultValues": {
 		"properties": [],

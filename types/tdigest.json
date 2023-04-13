@@ -2,7 +2,7 @@
 	"name": "T-Digest",
 	"erdAbbreviation": "<TDigest>",
 	"dtdAbbreviation": "[...]",
-	"parentType": "string",
+	"parentType": "binary",
 	"useSample": true,
 	"defaultValues": {
 		"properties": [],
