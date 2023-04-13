@@ -1,5 +1,4 @@
-# [DRAFT Under development] Trino
- / Starburst plugin for Hackolade
+# [DRAFT Under development] Trino / Starburst plugin for Hackolade
 
 Plugin for [Trino](https://trino.io)/[Starburst](https://www.starburst.io) as a target in [Hackolade](https://hackolade.com) data modeling.  Requires prior download of the Hackolade application from our [download page](https://hackolade.com/download.html)
 
