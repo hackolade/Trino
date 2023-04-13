@@ -1,0 +1,38 @@
+{
+	"type": "ddl",
+	"ddlType": "plugin",
+	"namePrefix": "Trino",
+	"mode": "trino",
+	"level": {
+		"container": true,
+		"entity": true,
+		"view": true
+	},
+	"resolvedDefinitions": true,
+	"applyScriptToInstance": true,
+	"compMode": {
+		"entity": true,
+		"container": true,
+		"useDdlProvider": true
+	},
+	"additionalOptions": [
+		{
+			"id": "applyDropStatements",
+			"value": false,
+			"forUpdate": true,
+			"name": "Apply Drop Statements",
+			"isDropInStatements": true
+		},
+		{
+			"name": "Exclude schema ALTER statements",
+			"id": "excludeContainerAlterStatements",
+			"value": false,
+			"forUpdate": true,
+			"compModeDependency": {
+				"containers": {
+					"modified": true
+				}
+			}
+		}
+	]
+}

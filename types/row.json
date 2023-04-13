@@ -1,0 +1,16 @@
+{
+	"name": "row",
+	"erdAbbreviation": "<row>",
+	"dtdAbbreviation": "[...]",
+	"parentType": "string",
+	"useSample": true,
+	"defaultValues": {
+		"properties": [],
+		"primaryKey": false,
+		"additionalItems": true,
+		"minItems": "",
+		"maxItems": "",
+		"uniqueItems": false
+	},
+	"hiddenOnEntity": "view"
+}

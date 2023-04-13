@@ -1,0 +1,10 @@
+{
+	"errors": {
+		"NO_DATABASES": "There is no catalog in Trino instance",
+		"WRONG_CONNECTION": "Can not connect to Trino instance"
+	},
+	"defaultDdlType": "trino",
+	"excludeDocKind": ["id"],
+	"connectionList": [ "name", "host", "port", "userName" ],
+	"helpUrl": "https://hackolade.com/help/ConnecttoaTrinoStarburstinstance.html"
+}

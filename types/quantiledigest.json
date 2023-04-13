@@ -1,0 +1,16 @@
+{
+	"name": "QuantileDigest",
+	"erdAbbreviation": "<qdigest>",
+	"dtdAbbreviation": "[...]",
+	"parentType": "string",
+	"useSample": true,
+	"defaultValues": {
+		"properties": [],
+		"primaryKey": false,
+		"additionalItems": true,
+		"minItems": "",
+		"maxItems": "",
+		"uniqueItems": false
+	},
+	"hiddenOnEntity": "view"
+}

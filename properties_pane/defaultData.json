@@ -1,0 +1,90 @@
+{
+	"model": {
+		"modelName": "New model",
+		"dbVersion": "",
+		"dbVendor": "Redshift"
+	},
+	"container": {
+		"name": "New schema",
+		"unlimitedQuota": false,
+		"ifNotExists": true,
+		"indexes": []
+	},
+	"collection": {
+		"collectionName": "New table",
+		"autoSortKey": true,
+		"ifNotExists": true,
+		"sortStyle": "Compound",
+		"formatTypeOptions": {
+			"NULL_IF": [{ "NULL_IF_item": "\\N" }]
+		}
+	},
+	"field": {
+		"name": "New column",
+		"caseSensitivity": "",
+		"accentSensitivity": "",
+		"punctuationSensitivity": "",
+		"firstLetterPreference": "",
+		"caseConversion": "",
+		"spaceTrimming": ""	,
+		"defaultOption": {
+			"value": "Default",
+			"valueDependencies": [{
+				"value": "Default",
+				"dependency": {
+					"key": "default",
+					"exist": true
+				}
+			},{
+				"value": "Identity",
+				"dependency": [{
+					"key": "seed",
+					"exist": true
+				},{
+					"key": "step",
+					"exist": true
+				}]
+			}]	
+		},
+		"identity": {
+			"seed": 0,
+			"step": 1
+		},
+		"generateIdentity": "always",
+		"tPrecision": 9,
+		"superType": "JSON",
+		"subtype": {
+			"valueDependencies": [{
+				"value": "json",
+				"dependency": {
+					"key": "childType",
+					"value": "object"
+				}
+			}]
+		}
+	},
+	"patternField": {
+		"name": "^[a-zA-Z0-9_.-]+$"
+	},
+	"multipleField": {
+		"primaryKey": true
+	},
+	"subschema": {},
+	"arrayItem": {},
+	"choice": {},
+	"relationship": {},
+	"user": {},
+	"view": {
+		"viewOn": "",
+		"pipeline": "",
+		"autoSortKey": false
+	},
+	"SecIdxs": {
+		"name": "New Secondary Index",
+		"SecIndxKey": "",
+		"SecIndxID": "",
+		"SecIndxDescription": "",
+		"SecIndxFunction": "",
+		"SecIndxComments": ""
+	}
+}

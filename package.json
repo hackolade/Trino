@@ -1,0 +1,44 @@
+{
+  "name": "Trino",
+  "version": "0.0.1",
+  "versionDate": "2023-04-01",
+  "author": "hackolade",
+  "engines": {
+    "hackolade": "6.9.10",
+    "hackoladePlugin": "1.2.1"
+  },
+  "contributes": {
+    "target": {
+      "applicationTarget": "trino",
+      "title": "Trino / Starburst",
+      "versions": []
+    },
+    "features": {
+      "disableChoices": true,
+      "disableDenormalization": true,
+      "disableMultipleTypes": true,
+      "disablePatternField": false,
+      "discoverRelationships": true,
+      "enableComplexTypesNormalization": true,
+      "enableFetchSystemEntitiesCheckbox": false,
+      "enableForwardEngineering": true,
+      "enableJsonType": true,
+      "enableReverseEngineering": true,
+      "FEScriptCommentsSupported": true,
+      "nestedCollections": false,
+      "relationships": {
+        "compositeRelationships": false
+      },
+      "reverseSchemaIntoOneColumn": true,
+      "useJsonTypesWithComplexTypes": true,
+      "views": {
+        "enabled": true,
+        "viewLevel": "container",
+        "disablePipelines": true
+      }
+    }
+  },
+  "description": "Hackolade plugin for Trino / Starburst",
+  "icon_url": "logo.png",
+  "disabled": false
+}
