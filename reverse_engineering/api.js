@@ -57,7 +57,7 @@ module.exports = {
 		try {
 			logger.clear();
 			logger.log('info', connectionInfo, 'connectionInfo', connectionInfo.hiddenKeys);
-			const systemDatabases = connectionInfo.includeSystemCollection ? [] : ['information_schema', 'mysql', 'performance_schema'];
+			const systemDatabases = connectionInfo.includeSystemCollection ? [] : ['metadata'];
 
 			const connection = await this.connect(connectionInfo);
 			const instance = connectionHelper.createInstance(connection, logger);
@@ -114,14 +114,14 @@ module.exports = {
 			const instance = await connectionHelper.createInstance(connection, logger);
 			const dbVersion = await instance.serverVersion();
 
-			log.info('MySQL version: ' + dbVersion);
+			log.info('Trino version: ' + dbVersion);
 			log.progress('Start reverse engineering ...');		
 			const isVersion8 = getMajorVersionNumber(dbVersion) >= 8;
 			
 			let tablespaces = {};
 			
 			if (isVersion8) {
-				tablespaces = mysqlHelper.getTablespaces({
+				tablespaces = trinoHelper.getTablespaces({
 					innoDb: await instance.getInnoDBTablespaces(),
 					ndb: await instance.getNDBTablespaces(),
 				});
@@ -134,14 +134,14 @@ module.exports = {
 				log.info(`Parsing database "${dbName}"`);
 				log.progress(`Parsing database "${dbName}"`, dbName);			
 
-				const containerData = mysqlHelper.parseDatabaseStatement(
+				const containerData = trinoHelper.parseDatabaseStatement(
 					await instance.describeDatabase(dbName)
 				);
 
 				log.info(`Parsing functions`);
 				log.progress(`Parsing functions`, dbName);	
 
-				const UDFs = mysqlHelper.parseFunctions(
+				const UDFs = trinoHelper.parseFunctions(
 					await instance.getFunctions(dbName), log
 				);
 				logger.log('info', 'Parsed functions', JSON.stringify(UDFs, null,2));
@@ -149,7 +149,7 @@ module.exports = {
 				log.info(`Parsing procedures`);
 				log.progress(`Parsing procedures`, dbName);
 
-				const Procedures = mysqlHelper.parseProcedures(
+				const Procedures = trinoHelper.parseProcedures(
 					await instance.getProcedures(dbName), log
 				);
 
@@ -178,8 +178,8 @@ module.exports = {
 
 					const indexes = await instance.getIndexes(dbName, tableName);
 
-					const jsonSchema = mysqlHelper.getJsonSchema({ columns, records, indexes });
-					const Indxs = mysqlHelper.parseIndexes(indexes);
+					const jsonSchema = trinoHelper.getJsonSchema({ columns, records, indexes });
+					const Indxs = trinoHelper.parseIndexes(indexes);
 
 					log.info(`Data retrieved successfully "${tableName}"`);
 					log.progress(`Data retrieved successfully`, dbName, tableName);
@@ -195,7 +195,7 @@ module.exports = {
 						standardDoc: records[0],
 						ddl: {
 							script: ddl,
-							type: 'mySql'
+							type: 'trino'
 						},
 						emptyBucket: false,
 						validation: {
@@ -219,7 +219,7 @@ module.exports = {
 						name: viewName,
 						ddl: {
 							script: ddl,
-							type: 'mySql'
+							type: 'trino'
 						}
 					};
 				});
