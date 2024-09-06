@@ -1,7 +1,7 @@
 {
   "name": "Trino",
   "version": "1.0.0",
-  "description": "trino reverse engineering module",
+  "description": "Trino reverse engineering module",
   "author": "Hackolade",
   "installed": true
 }
